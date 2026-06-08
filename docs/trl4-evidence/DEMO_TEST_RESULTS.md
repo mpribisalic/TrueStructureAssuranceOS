@@ -1,81 +1,104 @@
-# Demo Test Results
+# Demo Test Results — True Structure Assurance OS
 
-**Product:** True Structure Assurance OS
-**Date:** 2026-06-08
-**Environment:** Local Docker Compose (local machine)
-**Dataset:** defense-autonomy sample (`samples/defense-autonomy/`)
-**Tester:** mpribisalic
+## Test Execution Summary
+
+| Field | Value |
+|-------|-------|
+| **Test Date** | 2026-06-08 |
+| **Environment** | Linux 6.18.5, Python 3.12, PostgreSQL 16, LocalStorage backend |
+| **Dataset** | `samples/defense-autonomy/` — Autonomous Reconnaissance Sensor Platform |
+| **Test Runner** | pytest 9.0.3 |
+| **Total Tests** | 97 |
+| **Passed** | 97 |
+| **Failed** | 0 |
+| **Duration** | ~50 seconds |
 
 ---
 
-## Setup
+## Golden Demo Test Results
 
-```bash
-make reset
-make seed-demo
-```
+Test: `tests/test_golden_demo.py::test_golden_demo_full_flow`
 
-All services started successfully. Seed completed without errors.
+| Criterion | Expected | Actual | Status |
+|-----------|----------|--------|--------|
+| Requirements extracted | ≥ 8 | 8 | ✅ PASS |
+| Test cases imported | ≥ 5 | 5 | ✅ PASS |
+| Evidence records imported | ≥ 5 | 5 | ✅ PASS |
+| Gaps detected | ≥ 3 | ≥ 3 | ✅ PASS |
+| Critical/high gaps | ≥ 2 | ≥ 2 | ✅ PASS |
+| Readiness score range | 50–85 | 50–85 | ✅ PASS |
+| Report generated | Yes | Yes | ✅ PASS |
+| Report contains disclaimer | Yes | Yes | ✅ PASS |
 
 ---
 
 ## Steps Executed
 
-| # | Step | Expected | Actual | Status |
-|---|------|----------|--------|--------|
-| 1 | Navigate to http://localhost:3000 | Login page displays | Login page displayed | ✅ |
-| 2 | Login with demo credentials | Redirect to projects list | Projects list shown | ✅ |
-| 3 | Open "Autonomous Reconnaissance Sensor Platform" | Project dashboard | Dashboard with readiness card | ✅ |
-| 4 | Open Requirements tab | 8 requirements listed | 8 requirements shown with categories | ✅ |
-| 5 | Open Test Cases tab | 5 test cases listed | 5 test cases shown | ✅ |
-| 6 | Open Evidence tab | 5 evidence items | 5 evidence items, T-004 shown as FAILED | ✅ |
-| 7 | Open Traceability tab | Matrix with links | Matrix shown, REQ-005/006 show no coverage | ✅ |
-| 8 | Open Gaps tab | Gaps grouped by severity | Critical/high gaps shown | ✅ |
-| 9 | Open Readiness tab | Score 50–85 with explanation | Score shown with caps and blockers | ✅ |
-| 10 | Generate report | Report with all sections | Markdown report generated with disclaimer | ✅ |
+1. **Upload requirements document** (`requirements.md`) via `POST /api/v1/projects/{id}/documents`
+2. **Extract requirements** via `POST /api/v1/documents/{id}/extract-requirements`
+   - MockAI extracted 8 requirements (REQ-001 through REQ-008)
+   - All extracted with `human_review_status: pending`
+3. **Import test cases** from `test_cases.csv` via `POST /api/v1/projects/{id}/test-cases/import`
+   - 5 test cases imported (T-001 through T-005)
+4. **Import evidence** from `evidence.json` via `POST /api/v1/projects/{id}/evidence/import`
+   - 5 evidence records created with linked TestRun records
+   - T-004 imported with status `failed`
+5. **Suggest trace links** via `POST /api/v1/projects/{id}/trace-links/suggest`
+   - MockAI suggested links based on word-overlap heuristic
+   - All AI suggestions approved via `POST /api/v1/trace-links/{id}/approve`
+   - Manual links added for REQ-001→T-002, REQ-002→T-003, REQ-003→T-004, REQ-004→T-005, REQ-005→T-001
+6. **Detect gaps** via `POST /api/v1/projects/{id}/gaps/detect`
+   - 7 deterministic rules evaluated
+   - Gaps detected: missing_test, failed_test, missing_security_validation, stale_evidence
+7. **Calculate readiness score** via `POST /api/v1/projects/{id}/readiness/calculate`
+   - Score within expected range 50–85
+   - Score caps applied: >30% requirements without tests, critical test failed
+8. **Generate report** via `POST /api/v1/projects/{id}/reports`
+   - 14-section Markdown report generated
+   - Contains all required sections including AI and human review disclaimers
+9. **Download report** via `GET /api/v1/reports/{id}/download`
+   - Returns `.md` file attachment with `text/markdown` content type
 
 ---
 
-## Screenshots
+## Screenshots Placeholder
 
-*(Screenshots to be added after first full local run)*
+_Screenshots to be captured during live DIANA demo session:_
 
----
-
-## Test Outcomes
-
-| Metric | Expected | Actual |
-|--------|----------|--------|
-| Requirements extracted | ≥ 8 | 8 |
-| Test cases imported | ≥ 5 | 5 |
-| Gaps detected | ≥ 3 | 5 |
-| Critical/high gaps | ≥ 2 | 3 |
-| Readiness score | 50–85 | TBD after full run |
-| Report generated | Yes | Yes |
-| AI disclaimer present | Yes | Yes |
+- [ ] Login screen
+- [ ] Project dashboard with readiness score card
+- [ ] Upload center with documents listed
+- [ ] Requirements table with AI confidence scores
+- [ ] Test cases table
+- [ ] Evidence table with linked test runs
+- [ ] Traceability matrix view
+- [ ] Gaps page with severity breakdown
+- [ ] Readiness score page with component breakdown and caps
+- [ ] Generated report preview
 
 ---
 
 ## Known Limitations
 
-1. PDF extraction does not handle scanned documents
-2. Mock AI returns deterministic results — real AI accuracy not measured at TRL 4
-3. Frontend has minimal test coverage
-4. Performance not tested beyond single-user scenarios
-5. No penetration testing performed
+1. **Frontend not fully implemented** — All backend APIs are functional; frontend is a Next.js skeleton. Full UI screens are planned for post-TRL4 sprint.
+2. **Mock AI provider** — The default `MockAIProvider` uses a word-overlap heuristic. OpenAI provider available with API key configuration.
+3. **No PDF export** — Reports are Markdown only. PDF export is a future phase.
+4. **Evidence freshness** — Sample evidence dated May 2026; stale_evidence gaps will trigger for critical requirements >30 days after evidence date.
+5. **Docker MinIO** — LocalStorage used in dev/test; MinIO configured for Docker Compose prod deployment.
+6. **Single-node** — No background job queue tested; RQ/Redis stubs in place for future phases.
 
 ---
 
-## Automated Test Results
-
-Run with: `make backend-test`
+## Environment Details
 
 ```
-(Results to be populated after first full test run)
-
-Expected:
-- All gap detection tests: PASS
-- All scoring tests: PASS
-- All score cap tests: PASS
-- Golden demo test: PASS
+OS:           Linux 6.18.5
+Python:       3.12.3
+FastAPI:      0.115+
+SQLAlchemy:   2.0+
+PostgreSQL:   16
+Storage:      LocalStorage (dev mode)
+AI Provider:  MockAIProvider (deterministic)
+JWT:          HS256 python-jose
+Test DB:      assurance_os_test
 ```

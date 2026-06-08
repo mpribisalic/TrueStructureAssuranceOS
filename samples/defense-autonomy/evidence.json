@@ -1,0 +1,37 @@
+[
+  {
+    "external_test_id": "T-001",
+    "status": "passed",
+    "executed_at": "2026-05-01T10:00:00Z",
+    "environment": "simulation",
+    "summary": "Nominal operation completed successfully."
+  },
+  {
+    "external_test_id": "T-002",
+    "status": "passed",
+    "executed_at": "2026-05-01T11:00:00Z",
+    "environment": "simulation",
+    "summary": "System maintained safe operation for 35 seconds under degraded positioning."
+  },
+  {
+    "external_test_id": "T-003",
+    "status": "passed",
+    "executed_at": "2026-05-02T09:00:00Z",
+    "environment": "simulation",
+    "summary": "Communication loss detected in 3.8 seconds."
+  },
+  {
+    "external_test_id": "T-004",
+    "status": "failed",
+    "executed_at": "2026-05-02T12:00:00Z",
+    "environment": "simulation",
+    "summary": "Safe mode transition was delayed beyond acceptable threshold."
+  },
+  {
+    "external_test_id": "T-005",
+    "status": "passed",
+    "executed_at": "2026-05-03T12:00:00Z",
+    "environment": "simulation",
+    "summary": "Telemetry file was generated and stored."
+  }
+]
