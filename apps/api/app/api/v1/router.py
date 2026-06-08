@@ -2,7 +2,7 @@
 # Each new phase adds its router to this file.
 from fastapi import APIRouter
 
-from app.api.v1.endpoints import auth, documents, evidence, gaps, projects, requirements, test_cases, trace_links
+from app.api.v1.endpoints import auth, documents, evidence, gaps, projects, readiness, requirements, test_cases, trace_links
 
 router = APIRouter(prefix="/api/v1")
 
@@ -14,3 +14,4 @@ router.include_router(test_cases.router)
 router.include_router(evidence.router)
 router.include_router(trace_links.router)
 router.include_router(gaps.router)
+router.include_router(readiness.router)
