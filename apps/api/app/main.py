@@ -7,6 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
+from app.api.v1.router import router as api_router
 from app.config import settings
 from app.core.errors import register_exception_handlers
 from app.core.logging import get_logger, setup_logging
@@ -32,6 +33,7 @@ app = FastAPI(
 )
 
 register_exception_handlers(app)
+app.include_router(api_router)
 
 app.add_middleware(
     CORSMiddleware,
