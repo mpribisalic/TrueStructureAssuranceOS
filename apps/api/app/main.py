@@ -1,17 +1,37 @@
 # Application entry point.
 # Routes are registered here as they are implemented in later phases.
 # Middleware, exception handlers and lifespan events are also added here.
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
 
 from app.config import settings
+from app.core.errors import register_exception_handlers
+from app.core.logging import get_logger, setup_logging
+from app.db.session import SessionLocal
+
+logger = get_logger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):  # type: ignore[type-arg]
+    setup_logging()
+    logger.info("Starting %s [env=%s]", settings.app_name, settings.app_env)
+    yield
+    logger.info("Shutting down")
+
 
 app = FastAPI(
     title=settings.app_name,
     version="0.1.0",
     docs_url="/docs",
     redoc_url="/redoc",
+    lifespan=lifespan,
 )
+
+register_exception_handlers(app)
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,4 +44,18 @@ app.add_middleware(
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "app": settings.app_name, "env": settings.app_env}
+    """Liveness probe — also checks database connectivity."""
+    db_ok = False
+    try:
+        with SessionLocal() as db:
+            db.execute(text("SELECT 1"))
+        db_ok = True
+    except Exception:
+        logger.warning("Database health check failed")
+
+    return {
+        "status": "ok" if db_ok else "degraded",
+        "app": settings.app_name,
+        "env": settings.app_env,
+        "database": "ok" if db_ok else "unavailable",
+    }
