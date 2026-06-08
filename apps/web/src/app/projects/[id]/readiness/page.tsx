@@ -58,7 +58,7 @@ export default function ReadinessPage() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ["readiness", id] }),
   });
 
-  const subScores: Array<[string, keyof typeof readiness]> = [
+  const subScores: Array<[string, string]> = [
     ["Coverage", "coverage_score"],
     ["Test Pass", "test_pass_score"],
     ["Evidence", "evidence_score"],
