@@ -1,16 +1,22 @@
 # Shared pytest fixtures for all tests.
 # Each test gets an isolated DB session (rolled back after) and a test client
 # wired to that session so tests never interfere with each other.
+import os
+
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
+
+# Force local storage backend before any app imports resolve settings
+os.environ.setdefault("OBJECT_STORAGE_PROVIDER", "local")
 
 from app.config import settings
 from app.core.security import hash_password
 from app.db.base import Base, import_all_models
 from app.db.session import get_db
 from app.main import app
+from app.storage.factory import get_storage
 from app.models.organization import Organization
 from app.models.project import CriticalityLevel, Industry, Project
 from app.models.user import User, UserRole
@@ -41,6 +47,13 @@ def db():
         session.close()
         transaction.rollback()
         connection.close()
+
+
+@pytest.fixture(autouse=True)
+def reset_storage_cache():
+    get_storage.cache_clear()
+    yield
+    get_storage.cache_clear()
 
 
 @pytest.fixture
