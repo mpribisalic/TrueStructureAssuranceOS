@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="True Structure Mission Assurance Platform — AI-assisted validation evidence traceability, gap detection, and readiness scoring for defense and autonomous systems." />
+  <meta name="keywords" content="mission assurance, validation evidence, defense, NATO DIANA, autonomous systems, TRL, readiness, traceability" />
+  <meta property="og:title" content="True Structure — Mission Assurance Intelligence for Defense Systems" />
+  <meta property="og:description" content="Transform validation evidence into explainable mission readiness. Know what has been validated, what remains unvalidated, and what blocks operational readiness." />
+  <meta property="og:type" content="website" />
+  <title>True Structure — Mission Assurance Intelligence for Defense Systems</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav__inner">
+          <a href="#" class="nav__logo">TRUE <span>STRUCTURE</span></a>
+
+          <ul class="nav__links">
+            <li><a href="#platform">Platform</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav__actions">
+            <a href="#contact" class="btn btn--primary btn--sm">Request Demo</a>
+          </div>
+
+          <button class="nav__toggle" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════════════ -->
+    <section class="hero" id="mission">
+      <div class="container">
+        <div class="hero__inner">
+          <h1 class="hero__headline">
+            Mission Assurance Intelligence<br />
+            for <em>Defense Systems</em>
+          </h1>
+          <p class="hero__sub">
+            True Structure transforms validation evidence into explainable mission readiness.
+            Know what has been validated, what remains unvalidated, and what blocks operational readiness.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#demo" class="btn btn--primary">View Live Demo</a>
+            <a href="#contact" class="btn btn--outline">Request Pilot Access</a>
+          </div>
+
+          <div class="hero__badges">
+            <span class="badge badge--blue"><span class="badge__dot"></span>TRL 4 Prototype</span>
+            <span class="badge badge--amber"><span class="badge__dot"></span>NATO DIANA Applicant</span>
+            <span class="badge badge--green"><span class="badge__dot"></span>Dual-Use Technology</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PROBLEM
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section section--alt" id="problem">
+      <div class="container">
+        <p class="section-label">The Challenge</p>
+        <h2 class="section-title">The Validation Evidence Problem</h2>
+        <p class="section-subtitle" style="margin-bottom: 56px;">
+          Defense program managers and system integrators face a persistent, unsolved problem:
+          certification evidence is fragmented, readiness is opaque, and verification cycles are slow.
+        </p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card__icon card__icon--danger">&#9632;</div>
+            <h3 class="card__title">Evidence is Scattered</h3>
+            <p class="card__text">
+              PDFs, Word documents, Jira tickets, Excel sheets, Confluence pages, and test reports —
+              no single source of truth. Traceability from requirement to validated evidence
+              is manual, error-prone, and incomplete.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon card__icon--warning">&#9650;</div>
+            <h3 class="card__title">Readiness is Unknown</h3>
+            <p class="card__text">
+              No automated way to answer the critical questions: Are we ready to operate?
+              What validation is missing? What has failed? What is the mission impact of
+              each unresolved gap?
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon card__icon--blue">&#8987;</div>
+            <h3 class="card__title">Certification is Slow</h3>
+            <p class="card__text">
+              Manual evidence collection delays program milestones, increases cost, and
+              introduces risk. Defence certification cycles that should take weeks take months —
+              because no tool closes the gap between engineering artefacts and assurance decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PLATFORM / SOLUTION
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section" id="platform">
+      <div class="container">
+        <p class="section-label">The Solution</p>
+        <h2 class="section-title">True Structure Mission Assurance Platform</h2>
+        <p class="section-subtitle" style="margin-bottom: 56px;">
+          A deterministic, AI-assisted platform that ingests validation artefacts,
+          traces them to requirements, detects gaps, and produces an explainable
+          mission readiness score.
+        </p>
+
+        <div class="platform-grid">
+
+          <!-- Architecture diagram -->
+          <div>
+            <div class="arch-block">
+              <div class="arch-block__title">System Architecture</div>
+              <pre class="arch-tree"><span class="tree-root">True Structure MAP</span>
+<span class="tree-branch">├──</span> <span class="tree-root">Assurance OS</span>
+<span class="tree-branch">│   ├──</span> <span class="tree-leaf">Requirement Intelligence</span>
+<span class="tree-branch">│   ├──</span> <span class="tree-leaf">Evidence Intelligence</span>
+<span class="tree-branch">│   ├──</span> <span class="tree-leaf">Traceability Engine</span>
+<span class="tree-branch">│   ├──</span> <span class="tree-leaf">Gap Detection Engine</span>
+<span class="tree-branch">│   ├──</span> <span class="tree-leaf">Readiness Engine</span>
+<span class="tree-branch">│   ├──</span> <span class="tree-leaf">Mission Impact Engine</span>
+<span class="tree-branch">│   ├──</span> <span class="tree-leaf">Confidence Engine</span>
+<span class="tree-branch">│   └──</span> <span class="tree-leaf">Reporting</span>
+<span class="tree-branch">└──</span> <span class="tree-root">ATVP Validation Engine</span>
+<span class="tree-branch">    ├──</span> <span class="tree-leaf">GPS Denial Scenarios</span>
+<span class="tree-branch">    ├──</span> <span class="tree-leaf">Network Degradation</span>
+<span class="tree-branch">    ├──</span> <span class="tree-leaf">Robustness Scoring</span>
+<span class="tree-branch">    └──</span> <span class="tree-leaf">Validation Evidence</span></pre>
+            </div>
+          </div>
+
+          <!-- Capability cards -->
+          <div class="capability-list">
+            <div class="cap-card">
+              <div class="cap-card__name">Requirement Intelligence</div>
+              <div class="cap-card__desc">
+                AI-assisted extraction and traceability from natural-language documents.
+                Maps requirements to validation evidence with human-in-the-loop review.
+              </div>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-card__name">Gap Detection</div>
+              <div class="cap-card__desc">
+                7 deterministic rules identify missing tests, absent evidence, and failed
+                validations. No ambiguity — each gap has a classification, severity, and
+                mission impact statement.
+              </div>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-card__name">Mission Impact Engine</div>
+              <div class="cap-card__desc">
+                Translates engineering gaps into operational and mission-level consequences.
+                Connects a failed test result to a degraded mission capability.
+              </div>
+            </div>
+
+            <div class="cap-card">
+              <div class="cap-card__name">Readiness Score</div>
+              <div class="cap-card__desc">
+                Weighted formula with 6 score caps produces an explainable TRL readiness
+                score. Every point is traceable to a specific gap, evidence item, or
+                validation result.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         DEMO FLOW
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section section--alt" id="demo">
+      <div class="container">
+        <p class="section-label">Demonstration</p>
+        <h2 class="section-title" style="text-align:center;">5-Minute DIANA Demonstration</h2>
+        <p class="section-subtitle" style="margin: 0 auto 64px; text-align:center;">
+          A walk-through of how True Structure exposes a critical validation gap
+          and produces a mission readiness decision — in under five minutes.
+        </p>
+
+        <div class="demo-steps">
+
+          <div class="demo-step">
+            <div class="demo-step__num">1</div>
+            <div class="demo-step__content">
+              <div class="demo-step__title">Open Dashboard</div>
+              <div class="demo-step__detail">
+                Platform loads with current programme state.
+                Overall readiness: <span class="highlight">61%</span>. Three active gaps flagged.
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="demo-step__num">2</div>
+            <div class="demo-step__content">
+              <div class="demo-step__title">Open Requirements — REQ-003: GPS Recovery</div>
+              <div class="demo-step__detail">
+                Requirement states: system shall recover GPS lock within 30 seconds of signal denial.
+                Linked to ATVP validation scenario GPS-DENIAL-001.
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="demo-step__num">3</div>
+            <div class="demo-step__content">
+              <div class="demo-step__title">View Linked ATVP Validation Evidence</div>
+              <div class="demo-step__detail">
+                ATVP engine ran GPS denial scenario. Validation report attached.
+                Evidence chain: requirement → test scenario → execution log → result.
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="demo-step__num">4</div>
+            <div class="demo-step__content">
+              <div class="demo-step__title">See Failed Validation: GPS Recovery Time</div>
+              <div class="demo-step__detail">
+                Expected: <span class="highlight--success">30s</span> &nbsp;|&nbsp;
+                Actual: <span class="highlight--danger">48s</span> &nbsp;|&nbsp;
+                Result: <span class="highlight--danger">FAIL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="demo-step__num">5</div>
+            <div class="demo-step__content">
+              <div class="demo-step__title">Gap Detected: Critical Validation Gap</div>
+              <div class="demo-step__detail">
+                Gap classification: <span class="highlight--danger">FAILED_VALIDATION</span>.
+                Severity: CRITICAL. Gap Detection Rule 3 triggered.
+                Mission impact computed automatically.
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="demo-step__num">6</div>
+            <div class="demo-step__content">
+              <div class="demo-step__title">Readiness Impact: 82% → 61%</div>
+              <div class="demo-step__detail">
+                Score cap applied: CRITICAL gap caps readiness at 65%.
+                Score recalculated. Delta: <span class="highlight--danger">−21 points</span>.
+                All impact factors displayed with weighting.
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="demo-step__num">7</div>
+            <div class="demo-step__content">
+              <div class="demo-step__title">Generate Report: Mission Not Ready</div>
+              <div class="demo-step__detail">
+                One-click report export. Decision:
+                <span class="highlight--danger">MISSION NOT READY</span>.
+                Report includes full evidence chain, gap register, and recommended remediation actions.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         NATO DIANA
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section" id="diana">
+      <div class="container">
+        <p class="section-label" style="text-align:center;">NATO DIANA</p>
+        <h2 class="section-title" style="text-align:center;">Built for NATO DIANA</h2>
+
+        <div class="diana-intro">
+          <p>
+            True Structure is designed as a TRL 4 dual-use prototype addressing NATO's need for trusted
+            autonomy and AI assurance infrastructure. The platform directly supports verification and
+            validation of autonomous defence systems — providing the evidence chain that programme
+            managers and certification authorities need to make informed readiness decisions.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card__icon card__icon--blue">&#9670;</div>
+            <h3 class="card__title">Trusted Autonomy</h3>
+            <p class="card__text">
+              Provides verifiable, traceable evidence chains for autonomous system validation.
+              Every assurance claim is backed by a linked artefact — no assertion without evidence.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon card__icon--green">&#9650;</div>
+            <h3 class="card__title">Dual-Use</h3>
+            <p class="card__text">
+              Applicable to defence, aerospace, medical devices, and regulated industries.
+              The validation gap and readiness model is domain-agnostic; domain-specific
+              rule sets are configurable.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon card__icon--warning">&#9632;</div>
+            <h3 class="card__title">AI Assurance</h3>
+            <p class="card__text">
+              Human-in-the-loop review of all AI-generated traceability and assessments.
+              AI accelerates — it does not decide. Every AI output is reviewable,
+              auditable, and overridable.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         CONTACT / PILOT REQUEST
+    ═══════════════════════════════════════════════════════ -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <p class="section-label">Access</p>
+        <h2 class="section-title">Request Pilot Access</h2>
+        <p class="section-subtitle" style="margin-bottom: 56px;">
+          We are accepting a limited cohort of pilot partners for the 2026 programme cycle.
+          Priority is given to NATO member defence contractors, system integrators, and
+          research institutions.
+        </p>
+
+        <div class="contact-grid">
+
+          <!-- Contact info -->
+          <div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon">&#9993;</div>
+              <div>
+                <div class="contact-info__label">Email</div>
+                <div class="contact-info__value">
+                  <a href="mailto:marko.pribisalic@gmail.com">marko.pribisalic@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-info__item">
+              <div class="contact-info__icon">&#9679;</div>
+              <div>
+                <div class="contact-info__label">Programme Status</div>
+                <div class="contact-info__value">TRL 4 Prototype — Pilot Cohort Open</div>
+              </div>
+            </div>
+
+            <div class="contact-info__item">
+              <div class="contact-info__icon">&#9650;</div>
+              <div>
+                <div class="contact-info__label">Applicant Track</div>
+                <div class="contact-info__value">NATO DIANA 2026 Accelerator</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 32px; padding: 24px; background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;">
+              <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px;">Pilot Scope</div>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+                <li style="font-size: 14px; color: var(--text-secondary); display: flex; gap: 10px;">
+                  <span style="color: var(--success); flex-shrink:0;">&#10003;</span>
+                  Full platform access for one programme or system
+                </li>
+                <li style="font-size: 14px; color: var(--text-secondary); display: flex; gap: 10px;">
+                  <span style="color: var(--success); flex-shrink:0;">&#10003;</span>
+                  ATVP validation scenario configuration
+                </li>
+                <li style="font-size: 14px; color: var(--text-secondary); display: flex; gap: 10px;">
+                  <span style="color: var(--success); flex-shrink:0;">&#10003;</span>
+                  Readiness report for DIANA evaluation
+                </li>
+                <li style="font-size: 14px; color: var(--text-secondary); display: flex; gap: 10px;">
+                  <span style="color: var(--success); flex-shrink:0;">&#10003;</span>
+                  Direct access to engineering team
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="form" action="#" method="POST">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Full name" required />
+              </div>
+              <div class="form-field">
+                <label for="org">Organisation</label>
+                <input type="text" id="org" name="organisation" placeholder="Organisation name" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@organisation.com" required />
+            </div>
+
+            <div class="form-field">
+              <label for="role">Role</label>
+              <select id="role" name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="defence_contractor">Defence Contractor</option>
+                <option value="system_integrator">System Integrator</option>
+                <option value="research_institution">Research Institution</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Describe your programme, system, or evaluation context. Include any specific validation or certification requirements."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="align-self: flex-start;">
+              Request Pilot Access
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__top">
+          <div>
+            <div class="footer__brand">TRUE <span>STRUCTURE</span></div>
+            <div class="footer__tagline">Mission Assurance Intelligence for Defence Systems</div>
+          </div>
+
+          <ul class="footer__links">
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="#platform">Documentation</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__bottom">
+          <span class="footer__copy">&#169; 2026 True Structure. All rights reserved.</span>
+          <span class="footer__disclaimer">This platform does not represent formal regulatory certification.</span>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS: mobile nav toggle only -->
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav__toggle');
+      var links = document.querySelector('.nav__links');
+      if (!toggle || !links) return;
+
+      toggle.addEventListener('click', function () {
+        var open = links.style.display === 'flex';
+        links.style.display = open ? '' : 'flex';
+        links.style.flexDirection = 'column';
+        links.style.position = 'absolute';
+        links.style.top = '64px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = '#0a0f1e';
+        links.style.padding = '16px 24px 24px';
+        links.style.borderBottom = '1px solid #334155';
+        links.style.gap = '20px';
+        links.style.zIndex = '99';
+        if (open) { links.removeAttribute('style'); }
+      });
+    })();
+  </script>
+
+</body>
+</html>
