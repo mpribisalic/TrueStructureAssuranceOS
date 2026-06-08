@@ -6,6 +6,7 @@ from app.api.v1.endpoints import auth, documents, evidence, gaps, projects, read
 from app.api.v1.endpoints.mission_impact import router as mission_impact_router
 from app.api.v1.endpoints.confidence import router as confidence_router
 from app.api.v1.endpoints.atvp import router as atvp_router
+from app.api.v1.endpoints.standards import router as standards_router
 
 router = APIRouter(prefix="/api/v1")
 
@@ -22,3 +23,4 @@ router.include_router(reports.router)
 router.include_router(mission_impact_router, tags=["mission-impact"])
 router.include_router(confidence_router, tags=["confidence"])
 router.include_router(atvp_router)
+router.include_router(standards_router, tags=["standards"])
