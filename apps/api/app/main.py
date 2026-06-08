@@ -11,7 +11,11 @@ from app.api.v1.router import router as api_router
 from app.config import settings
 from app.core.errors import register_exception_handlers
 from app.core.logging import get_logger, setup_logging
+from app.db.base import import_all_models
 from app.db.session import SessionLocal
+
+# Import all models so SQLAlchemy relationship resolution works at startup
+import_all_models()
 
 logger = get_logger(__name__)
 

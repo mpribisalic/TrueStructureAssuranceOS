@@ -24,7 +24,7 @@ import httpx
 BASE = "http://localhost:8000/api/v1"
 SAMPLES = Path(__file__).parent.parent.parent.parent / "samples" / "defense-autonomy"
 
-EMAIL = "demo@assuranceos.local"
+EMAIL = "demo@assuranceos.dev"
 PASSWORD = "demo1234"
 
 

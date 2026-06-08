@@ -17,7 +17,7 @@ from app.models.user import User, UserRole
 import_all_models()
 
 DEMO_ORG_NAME = "Assurance OS Demo"
-DEMO_EMAIL = "demo@assuranceos.local"
+DEMO_EMAIL = "demo@assuranceos.dev"
 DEMO_PASSWORD = "demo1234"
 DEMO_PROJECT_NAME = "Autonomous Reconnaissance Sensor Platform"
 
