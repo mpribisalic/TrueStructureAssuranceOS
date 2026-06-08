@@ -1,3 +1,6 @@
+# All configuration is loaded from environment variables.
+# Never add secrets or defaults with real values here — use .env.example as the template.
+# pydantic-settings reads from the .env file automatically when present.
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 

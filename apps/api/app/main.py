@@ -1,3 +1,6 @@
+# Application entry point.
+# Routes are registered here as they are implemented in later phases.
+# Middleware, exception handlers and lifespan events are also added here.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
