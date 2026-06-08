@@ -26,3 +26,10 @@ class TraceLinkSuggestResult(BaseModel):
     suggested: int
     skipped: int
     links: list[TraceLinkResponse]
+
+
+class TraceLinkCreate(BaseModel):
+    source_id: UUID
+    target_id: UUID
+    target_type: str = "test_case"
+    link_type: str = "verifies"

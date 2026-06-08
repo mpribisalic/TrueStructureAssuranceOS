@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.core.deps import CurrentUser, RequireEngineer
 from app.db.session import get_db
-from app.schemas.trace_link import TraceLinkResponse, TraceLinkSuggestResult
+from app.schemas.trace_link import TraceLinkCreate, TraceLinkResponse, TraceLinkSuggestResult
 from app.services import trace_link_service
 
 router = APIRouter(tags=["traceability"])
@@ -23,6 +23,20 @@ def suggest_trace_links(
     db: Annotated[Session, Depends(get_db)],
 ):
     return trace_link_service.suggest_links(db, project_id)
+
+
+@router.post(
+    "/projects/{project_id}/trace-links",
+    response_model=TraceLinkResponse,
+    status_code=201,
+)
+def create_trace_link(
+    project_id: uuid.UUID,
+    payload: TraceLinkCreate,
+    current_user: RequireEngineer,
+    db: Annotated[Session, Depends(get_db)],
+):
+    return trace_link_service.create_manual_link(db, project_id, payload)
 
 
 @router.get("/projects/{project_id}/trace-links", response_model=list[TraceLinkResponse])

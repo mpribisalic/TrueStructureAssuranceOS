@@ -62,6 +62,26 @@ def suggest_links(db: Session, project_id: uuid.UUID) -> TraceLinkSuggestResult:
     )
 
 
+def create_manual_link(db: Session, project_id: uuid.UUID, payload) -> TraceLink:
+    from app.schemas.trace_link import TraceLinkCreate
+    if trace_link_repo.exists(db, project_id, payload.source_id, payload.target_id, payload.link_type):
+        from app.core.errors import ConflictError
+        raise ConflictError("Trace link already exists")
+    link = TraceLink(
+        project_id=project_id,
+        source_type="requirement",
+        source_id=payload.source_id,
+        target_type=payload.target_type,
+        target_id=payload.target_id,
+        link_type=payload.link_type,
+        created_by="user",
+        human_review_status=HumanReviewStatus.approved,
+    )
+    trace_link_repo.create(db, link)
+    db.flush()
+    return link
+
+
 def list_links(db: Session, project_id: uuid.UUID) -> list[TraceLink]:
     return trace_link_repo.get_all(db, project_id)
 
