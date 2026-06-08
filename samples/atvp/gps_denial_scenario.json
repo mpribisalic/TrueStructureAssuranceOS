@@ -1,0 +1,30 @@
+{
+  "platform": "ATVP",
+  "version": "1.0",
+  "export_timestamp": "2026-06-08T10:00:00Z",
+  "scenario": "GPS_DENIAL",
+  "results": [
+    {
+      "test_id": "GPS_DENIAL_001",
+      "test_name": "GPS Recovery Time Validation",
+      "status": "FAILED",
+      "metric": "recovery_time_seconds",
+      "expected": 30,
+      "actual": 48,
+      "score": 61,
+      "timestamp": "2026-06-08T09:00:00Z",
+      "notes": "Recovery time exceeded specification by 18 seconds"
+    },
+    {
+      "test_id": "NET_DEGRADATION_001",
+      "test_name": "Network Packet Loss Resilience",
+      "status": "PASSED",
+      "metric": "packet_loss_tolerance_percent",
+      "expected": 30,
+      "actual": 28,
+      "score": 95,
+      "timestamp": "2026-06-08T09:15:00Z",
+      "notes": "Within acceptable packet loss threshold"
+    }
+  ]
+}

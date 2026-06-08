@@ -187,6 +187,20 @@ def main():
     ok(f"Download: GET {BASE}/reports/{report_data['id']}/download")
     ok(f"Content length: {len(report_data['content_markdown'])} characters")
 
+    # ── Step 10: Import ATVP validation evidence ──────────────────────────────
+    step(10, "Import ATVP validation evidence")
+    atvp_bytes = (Path(__file__).parent.parent.parent.parent / "samples" / "atvp" / "gps_denial_scenario.json").read_bytes()
+    r = client.post(
+        f"{BASE}/projects/{pid}/evidence/import-atvp",
+        headers=headers,
+        json=json.loads(atvp_bytes),
+    )
+    if r.status_code == 201:
+        data = r.json()
+        ok(f"Imported {data['imported']} ATVP results ({data['skipped']} skipped)")
+    else:
+        print(f"  ! ATVP import failed: {r.status_code}")
+
     # ── Summary ───────────────────────────────────────────────────────────────
     print(f"\n{'='*60}")
     print(f"  DEMO COMPLETE")
